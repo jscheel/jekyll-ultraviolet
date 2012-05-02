@@ -15,6 +15,6 @@ Gem::Specification.new do |gem|
   gem.version       = Jekyll::Ultraviolet::VERSION
 
   gem.add_dependency "liquid"
-  gem.add_dependency "spox-ultraviolet"
+  gem.add_dependency "ultraviolet"
   gem.add_development_dependency "rspec", "~> 2.6.0"
 end
