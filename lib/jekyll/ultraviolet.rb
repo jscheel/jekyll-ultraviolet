@@ -19,7 +19,11 @@ module Jekyll
       def render(context)
         output = []
         output << context["pygments_prefix"]
-        output << Uv.parse(trim(super.join), "xhtml", @lang, false, theme)
+        if super.respond_to?(:join)
+          output << Uv.parse(trim(super.join), "xhtml", @lang, false, theme)
+        else
+          output << Uv.parse(trim(super), "xhtml", @lang, false, theme)
+        end
         output << context["pygments_suffix"]
         output.join
       rescue LoadError
